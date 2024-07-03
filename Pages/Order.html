@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="stylesheet" href="../Styles/sidebar.css">
+  <link rel="stylesheet" href="../Styles/swiper.css">
+  <link rel="stylesheet" href="../Styles/form.css">
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <title>Mayas Hotel</title>
+
+</head>
+
+<body>
+
+
+
+  <!-- --------------------top navbar----------------------------- -->
+
+
+  <!-- -----------------inner nav---------------------------- -->
+  <div class="w-full border-2 border-white" style="height: 2000px;">
+    <nav class="w-full fixed bg-white z-10 flex justify-between items-center ">
+
+      <div class="flex px-3 gap-10 justify-between items-center">
+        <i onclick="toggleMenu()" class="fas fa-th fa-rotate-270 text-3xl" style="color: #dde1e9;"></i>
+        <h1 class="text-2xl">Logo</h1>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="hidden lg:block">
+          <ul class="menu-items flex gap-8 items-center">
+            <li><a href="#"><img src="../Assets/menu.png" alt="menu" class="w-6 block mx-auto py-1"></a></li>
+            <li><a href="#"><img src="../Assets/text.png" alt="calender" class="w-6 block mx-auto py-1"></a></li>
+            <li><a href="#"><img src="../Assets/mail.png" alt="calender" class="w-6 block mx-auto py-1"></a></li>
+            <li><a href="#"><img src="../Assets/calendar.png" alt="calender" class="w-6 block mx-auto py-1"></a></li>
+          </ul>
+        </div>
+
+        <div class="dropdown">
+          <button class="px-4 py-2 text-black hover:bg-blue-400">Admin <i class="fa fa-caret-down"></i></button>
+          <div class="dropdown-content absolute hidden bg-white shadow-md rounded mt-2 text-sm w-[400px]">
+            <a href="#" class="block px-4 py-2 text-black">
+              <span class="icon"><i class="fa-solid fa-user"></i></span>
+              <span class="title ml-2">Profile</span>
+            </a>
+            <a href="#" class="block px-4 py-2 text-black">
+              <span class="icon"><i class="fa-solid fa-clock-rotate-left"></i></span>
+              <span class="title ml-2">Sign Out</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div>
+      <!-- <div class="toggle text-3xl text-center pt-2" onclick="toggleMenu()"><i class="fas fa-th fa-rotate-270 fa-xs"
+          style="color: #dde1e9;"></i></div> -->
+
+      <div class="navigation z-9">
+
+        <ul>
+          <li>
+            <a href="#">
+              <span class="icon"><i class="fa-solid fa-house"></i></span>
+              <span class="title">Home</span>
+            </a>
+          </li>
+          <li class="items-center">
+            <a href="#" class="text-center mx-auto items-center">
+              <span class="icon"><img src="../Assets/invoice.png" alt="invoice" class="w-6 block mx-auto py-4"></span>
+              <span class="title">Receipt</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"><i class="fa-solid fa-truck"></i></span>
+              <span class="title">Messages</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"><i class="fa-solid fa-chart-simple"></i></span>
+              <span class="title">Help</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"><i class="fa-solid fa-arrow-up-from-bracket"></i></span>
+              <span class="title">Password</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"><i class="fa-solid fa-clock-rotate-left"></i></i></span>
+              <span class="title">SignOut</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"><i class="fa-solid fa-gear"></i></span>
+              <span class="title">Settings</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+
+    <div class=" w-full flex justify-between shadow-xl mt-12 ">
+      <div class="w-[60px]">
+
+      </div>
+      <!-- <div class="flex-col border-2 border-black "> -->
+      <div class="px-4 bg-white z-5 rounded-md py-2 flex flex-row justify-between items-center inner-nav">
+        <div class="text-[0.1rem] sm:text-[1rem] hidden sm:block ">
+          <ul class="menu-items flex flex-row gap-2 sm:gap-6 items-center">
+            <li><a href="#" onclick="showDiv('reservationDiv')">Reservation</a></li>
+            <li><a href="#" onclick="showDiv('arrivalsDiv')">Arrivals</a></li>
+            <li><a href="#" onclick="showDiv('departuresDiv')">Departures</a></li>
+            <li><a href="#" onclick="showDiv('inHouseDiv')">In-House</a></li>
+          </ul>
+        </div>
+
+        <div class="dropdown sm:hidden">
+          <button class="px-4 py-2 text-black hover:bg-blue-400">Filter <i class="fa fa-caret-down"></i></button>
+          <div class="dropdown-content absolute hidden bg-white shadow-md rounded mt-2">
+            <ul class="menu-items flex flex-col">
+              <li><a href="#" onclick="showDiv('reservationDiv')">Reservation</a></li>
+              <li><a href="#" onclick="showDiv('arrivalsDiv')">Arrivals</a></li>
+              <li><a href="#" onclick="showDiv('departuresDiv')">Departures</a></li>
+              <li><a href="#" onclick="showDiv('inHouseDiv')">In-House</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="hidden sm:block">
+          <ul class="menu-items flex flex-row gap-2 items-center text-sm">
+            <li>
+              <div class="flex flex-row">
+                <button class="border-blue-600 border-2 px-2 py-1 rounded-l-md hover:bg-blue-300">
+                  <i class="fa-solid fa-user"></i>
+                </button>
+                <button class="border-blue-600 border-2 px-2 py-1 rounded-r-md hover:bg-blue-300">
+                  <i class="fa-solid fa-users"></i>
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class="flex flex-row">
+                <button id="gridBtn"
+                  class="border-blue-600 border-2 px-2 py-1 rounded-l-md active-bg hover:bg-blue-300">
+                  <i class="fas fa-th fa-xl"></i>
+                </button>
+                <button id="listBtn" class="border-blue-600 border-2 px-2 py-1 rounded-r-md hover:bg-blue-300">
+                  <i class="fa-solid fa-list"></i>
+                </button>
+              </div>
+            </li>
+            <li class="border-blue-600 border-2 px-2 py-1 rounded-md hover:bg-blue-300"><a href="#"><i
+                  class="fa-solid fa-print"></i> Print GR</a></li>
+            <li class="border-blue-600 border-2 px-2 py-1 rounded-md hover:bg-blue-300"><a href="#"><i
+                  class="fa-solid fa-user-group"></i> Make Group</a></li>
+            <li class="border-blue-600 border-2 px-2 py-1 rounded-md hover:bg-blue-300 relative">
+              <a href="#"><span class="px-1"><i class="fa-solid fa-file-export"></i> Export</span> <span
+                  class="px-1 py-1 border-blue-600 border-l-2"><i class="fa-solid fa-angle-down"></i></span></a>
+            </li>
+            <li class="border-blue-600 border-2 px-2 py-1 rounded-md hover:bg-blue-300 relative search-container">
+              <a id="searchBtn" href="#"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+              <input type="text" id="searchInput" class="hidden border-blue-600 border-2 w-full px-2 rounded-md mt-1"
+                placeholder="Search...">
+            </li>
+          </ul>
+        </div>
+
+        <div class="hamburger sm:hidden text-2xl px-2 mr-4" onclick="toggleHamburger()">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <div id="side-menu"
+          class="menu fixed mt-32 top-0 right-0 w-56 absolute h-96 bg-white text-white z-40 py-8 hidden rounded-md ">
+          <ul class="menu-items flex flex-col gap-4 items-center text-sm">
+            <li>
+              <div class="flex flex-row">
+                <button class="border-blue-600 border-2 px-2 py-1 rounded-l-md hover:bg-blue-300">
+                  <i class="fa-solid fa-user text-black"></i>
+                </button>
+                <button class="border-blue-600 border-2 px-2 py-1 rounded-r-md hover:bg-blue-300">
+                  <i class="fa-solid fa-users text-black"></i>
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class="flex flex-row ">
+                <button id="mobileGridBtn" class="border-blue-600 border-2 px-2 py-1 rounded-l-md hover:bg-blue-300">
+                  <i class="fas fa-th fa-xl text-black"></i>
+                </button>
+                <button id="mobileListBtn" class="border-blue-600 border-2 px-2 py-1 rounded-r-md hover:bg-blue-300">
+                  <i class="fa-solid fa-list text-black"></i>
+                </button>
+              </div>
+            </li>
+            <li class="border-blue-600 border-2 px-2 py-1 rounded-md hover:bg-blue-300"><a href="#"
+                class="text-black"><i class="fa-solid fa-print text-black"></i> Print GR</a></li>
+            <li class="border-blue-600 border-2 px-2 py-1 rounded-md hover:bg-blue-300"><a href="#"
+                class="text-black"><i class="fa-solid fa-user-group text-black"></i> Make Group</a></li>
+            <li class="border-blue-600 border-2 px-2 py-1 rounded-md hover:bg-blue-300 relative">
+              <a href="#" class="text-black"><span class="px-1"><i class="fa-solid fa-file-export text-black"></i>
+                  Export</span> <span class="px-1 py-1 border-blue-600 border-l-2"><i
+                    class="fa-solid fa-angle-down text-black"></i></span></a>
+            </li>
+            <li class="border-blue-600 border-2 px-2 py-1 rounded-md hover:bg-blue-300"><a href="#"
+                class="text-black"><i class="fa-solid fa-magnifying-glass text-black"></i> Search</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mainArea">
+      <!--======================= Reservation Area Start ==================================-->
+      <div id="reservationDiv" class="flex justify-between">
+        <div class="w-[100px] p-5 hidden lg:block">
+
+        </div>
+
+
+        <div class="flex flex-col lg:flex-row parent h-full gap-5 bg-gray-200 lg:w-[calc(100% - 100px)] lg:pl-16 lg:pr-5">
+
+          <div class="divOne h-full py-4 border-gray-200 border-2 shadow-md bg-white">
+            <div>
+              <div class="font-semibold  border-gray-900 border-b-2 pb-2 px-8">
+                <h1>Add Reservation</h1>
+              </div>
+              <form action="#" method="post" class="space-y-6">
+              
+                <div class="flex flex-col  gap-2 w-full h-full px-8 pt-4">
+                  <div class="flex flex-col space-y-2">
+                    <label for="check-in-date" class="text-gray-700 text-sm">Check-in</label>
+                    <div class="flex flex-row space-x-2">
+                      <input type="date" id="check-in-date" name="check-in-date"
+                        class="border border-gray-300 rounded-lg px-2 py-1">
+                      <input type="time" id="check-in-time" name="check-in-time"
+                        class="border border-gray-300 rounded-lg px-2 py-1">
+                    </div>
+                  </div>
+                  <div class="flex flex-col space-y-2">
+                    <label for="check-in-date" class="text-gray-700 text-sm">Check-out</label>
+                    <div class="flex flex-row space-x-2">
+                      <input type="date" id="check-in-date" name="check-in-date"
+                        class="border border-gray-300 rounded-lg px-2 py-1">
+                      <input type="time" id="check-in-time" name="check-in-time"
+                        class="border border-gray-300 rounded-lg px-2 py-1">
+                    </div>
+                  </div>
+
+                  <!-- Number of Rooms Dropdown -->
+                  <div class="flex flex-col space-y-2">
+                    <label for="rooms" class="text-gray-700 text-sm">Room(s)</label>
+                    <input type="number" id="rooms" name="rooms" min="1" max="10"
+                      class="border border-gray-300 rounded-lg px-2 py-1" placeholder="1">
+                  </div>
+
+                  <div class="flex flex-col space-y-2">
+                    <label for="reservation-type" class="text-gray-700 text-sm">Reservation Type</label>
+                    <select id="reservation-type" name="reservation-type"
+                      class="border border-gray-300 rounded-lg px-2 py-1">
+                      <option value="Confirm Booking">Confirm Booking</option>
+                      <option value="Unconfirmed Booking Inquiry">Unconfirmed Booking Inquiry</option>
+                      <option value="Online Failed Booking">Online Failed Booking</option>
+                      <option value="Hold Confirmed Booking">Hold Confirmed Booking</option>
+                      <option value="Hold Unconfirmed Booking">Hold Unconfirmed Booking</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-2 w-full h-full px-8">
+                  <div class="flex flex-col space-y-2">
+                    <label for="reservation-type" class="text-gray-700 text-sm">Booking Source</label>
+                    <select id="reservation-type" name="reservation-type"
+                      class="border border-gray-300 rounded-lg px-2 py-1">
+                      <option value="" selected disabled>-Select-</option>
+                      <option value="Confirm Booking">Confirm Booking</option>
+                      <option value="Unconfirmed Booking Inquiry">Unconfirmed Booking Inquiry</option>
+                      <option value="Online Failed Booking">Online Failed Booking</option>
+                      <option value="Hold Confirmed Booking">Hold Confirmed Booking</option>
+                      <option value="Hold Unconfirmed Booking">Hold Unconfirmed Booking</option>
+                    </select>
+                  </div>
+                  <div class="flex flex-col space-y-2">
+                    <label for="reservation-type" class="text-gray-700 text-sm">Buissness Source</label>
+                    <select id="reservation-type" name="reservation-type"
+                      class="border border-gray-300 rounded-lg px-2 py-1">
+                      <option value="" selected disabled>-Select-</option>
+                      <option value="Confirm Booking">Confirm Booking</option>
+                      <option value="Unconfirmed Booking Inquiry">Unconfirmed Booking Inquiry</option>
+                      <option value="Online Failed Booking">Online Failed Booking</option>
+                      <option value="Hold Confirmed Booking">Hold Confirmed Booking</option>
+                      <option value="Hold Unconfirmed Booking">Hold Unconfirmed Booking</option>
+                    </select>
+                  </div>
+                  <div class="flex flex-col space-y-2">
+                    <label for="reservation-type" class="text-gray-700 text-sm">Market Code</label>
+                    <select id="reservation-type" name="reservation-type"
+                      class="border border-gray-300 rounded-lg px-2 py-1">
+                      <option value="" selected disabled>-Select-</option>
+                      <option value="Confirm Booking">Confirm Booking</option>
+                      <option value="Unconfirmed Booking Inquiry">Unconfirmed Booking Inquiry</option>
+                      <option value="Online Failed Booking">Online Failed Booking</option>
+                      <option value="Hold Confirmed Booking">Hold Confirmed Booking</option>
+                      <option value="Hold Unconfirmed Booking">Hold Unconfirmed Booking</option>
+                    </select>
+                  </div>
+
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-2 w-full h-full px-8">
+                  <div class="flex flex-col space-y-2">
+                    <label for="room-type" class="text-gray-700 text-sm">Room Type</label>
+                    <select id="room-type" name="room-type" class="border border-gray-300 rounded-lg px-2 py-1">
+                      <option value="" selected disabled>-Select-</option>
+                      <option value="Twin Room">Twin Room</option>
+                      <option value="Standard Room">Standard Room</option>
+                      <option value="Superior Deluxe">Superior Deluxe</option>
+                      <option value="China Town">China Town</option>
+                      <option value="Double Room">Double Room</option>
+                      <option value="Quadruple Room">Quadruple Room</option>
+                      <option value="Suite Room">Suite Room</option>
+                    </select>
+                  </div>
+
+                  <!-- Rate Type Dropdown -->
+                  <div class="flex flex-col space-y-2">
+                    <label for="rate-type" class="text-gray-700 text-sm">Rate Type</label>
+                    <select id="rate-type" name="rate-type" class="border border-gray-300 rounded-lg px-2 py-1">
+                      <option value="" selected disabled>-Select-</option>
+                      <option value="Continental Plan">Continental Plan (CP)</option>
+                      <option value="American Plan">American Plan (AP)</option>
+                      <option value="European Plan">European Plan (EP)</option>
+                    </select>
+                  </div>
+
+                  <!-- Room Dropdown -->
+                  <div class="flex flex-col space-y-2">
+                    <label for="room" class="text-gray-700 text-sm">Room</label>
+                    <select id="room" name="room" class="border border-gray-300 rounded-lg px-2 py-1">
+                      <option value="" selected disabled>-Select-</option>
+                      <option value="101">101</option>
+                      <option value="102">102</option>
+                      <option value="103">103</option>
+                    </select>
+                  </div>
+
+                  <!-- Adult Dropdown -->
+                  <div class="flex flex-col space-y-2">
+                    <label for="adult" class="text-gray-700 text-sm">Adult(s)</label>
+                    <select id="adult" name="adult" class="border border-gray-300 rounded-lg px-2 py-1 w-20">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="4">5</option>
+                    </select>
+                  </div>
+
+                  <!-- Child Dropdown -->
+                  <div class="flex flex-col space-y-2">
+                    <label for="child" class="text-gray-700 text-sm">Child(ren)</label>
+                    <select id="child" name="child" class="border border-gray-300 rounded-lg px-2 py-1 w-20">
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="4">5</option>
+                    </select>
+                  </div>
+
+                  <!-- Rate (Rs) Dropdown -->
+                  <div class="flex flex-col space-y-2 text-sm">
+                    <label for="rate" class="text-gray-700">Rate (Rs)</label>
+                    <Input placeholder="3000" disabled class="px-2 py-1"></Input>
+                  </div>
+                </div>
+
+                <div class="px-8">
+                  <Button class="px-4 py-2 border-blue-600 border-2 rounded-md hover:bg-blue-300"> Add Room</Button>
+                  <Button class="px-4 py-2 border-blue-600 border-2 rounded-md hover:bg-blue-300">Add Discount</Button>
+                </div>
+
+                <div class="font-semibold px-8">
+                  <H1>GUEST INFORMATION</H1>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-2 w-full h-full px-8">
+                  <div class="flex flex-col space-y-2">
+                    <label for="guest-name" class="text-gray-700 text-sm">Guest Name</label>
+                    <div class="flex-row w-full ">
+                      <select id="guest-title" name="guest-title" class="border border-gray-300 px-2 py-1">
+                        <option value="Mr">Mr.</option>
+                        <option value="Mrs">Mrs.</option>
+                      </select>
+                      <input type="text" id="guest-name" name="guest-name" class="border border-gray-300 px-2 py-1"
+                        placeholder="Full Name">
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col space-y-2">
+                    <label for="mobile" class="text-gray-700 text-sm">Mobile</label>
+                    <input type="tel" id="mobile" name="mobile" class="border border-gray-300 px-2 py-1  "
+                      placeholder="Mobile">
+                  </div>
+
+                  <div class="flex flex-col space-y-2">
+                    <label for="email" class="text-gray-700 text-sm">Email</label>
+                    <input type="email" id="email" name="email" class="border border-gray-300 px-2 py-1 "
+                      placeholder="Email">
+                  </div>
+                </div>
+                <div class="flex flex-col space-y-2 px-8">
+                  <label for="Address" class="text-gray-700 text-sm">Address</label>
+                  <input type="text" id="Address" class="border border-gray-300 px-2 py-1" placeholder="Address">
+                </div>
+                <div class="flex flex-col sm:flex-row flex-wrap space-x-2 px-8">
+                  <div class="flex flex-col space-y-2">
+                    <label for="country" class="text-gray-700 text-sm">Country</label>
+                    <input type="text" id="country" name="country" class="border border-gray-300 px-2 py-1  "
+                      placeholder="Country">
+                  </div>
+
+                  <div class="flex flex-col space-y-2">
+                    <label for="State" class="text-gray-700 text-sm">State</label>
+                    <input type="text" id="State" name="State" class="border border-gray-300 px-2 py-1  "
+                      placeholder="State">
+                  </div>
+                  <div class="flex flex-col space-y-2">
+                    <label for="city" class="text-gray-700 text-sm">City</label>
+                    <input type="text" id="city" name="city" class="border border-gray-300 px-2 py-1  "
+                      placeholder="City">
+                  </div>
+                  <div class="flex flex-col space-y-2">
+                    <label for="zip" class="text-gray-700 text-sm">Zip</label>
+                    <input type="number" id="zip" name="zip" class="border border-gray-300 px-2 py-1 "
+                      placeholder="Zip">
+                  </div>
+                </div>
+
+                <div class="px-8">
+                  <Button class="px-4 py-2 border-blue-600 border-2 rounded-md hover:bg-blue-300">C Form</Button>
+                </div>
+
+                <div class="flex flex-col space-y-4 px-8">
+                  <div class="font-semibold">
+                    <h1>OTHER INFORMATION</h1>
+                  </div>
+                  <div>
+                    <div class="flex flex-col space-y-4">
+                      <label>
+                        <input type="checkbox" name="option1" />
+                        Email Booking Vouchers
+                      </label>
+                      <label>
+                        <input type="checkbox" name="option2" />
+                        Send email at Checkout
+                      </label>
+                      <label>
+                        <input type="checkbox" name="option3" />
+                        Access to Guess Portal
+                      </label>
+                      <label>
+                        <input type="checkbox" name="option4" />
+                        Supress Rate on Registation Card
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+
+          </div>
+
+          <div class="py-4 divTwo h-full border-gray-200 border-2 shadow-md bg-white">
+            <div class="font-semibold mb-4 border-red-900 border-b-2 pb-2 px-4">
+              <h1>Billing Summary</h1>
+            </div>
+            <div class="flex flex-row justify-between px-12 py-2 items-center">
+              <div class="flex flex-col space-y-1">
+                <label for="Check-in" class="text-gray-700 text-sm">Check-in</label>
+                <h1>10/6/2024</h1>
+              </div>
+              <div class="text-2xl">
+                <p><i class="fa-solid fa-arrow-right" style="color: #b5b7ba;"></i></p>
+              </div>
+              <div class="flex flex-col space-y-1">
+                <label for="Check-out" class="text-gray-700 text-sm">Check-out</label>
+                <h1>12/6/2024</h1>
+              </div>
+            </div>
+            <div class="px-4 bg-gray-300 py-2">
+              <div class="flex flex-row justify-between">
+                <div>
+                  <h1>Room Charges</h1>
+                </div>
+                <div>
+                  <p>5000</p>
+                </div>
+              </div>
+
+              <div class="flex flex-row justify-between">
+                <div>
+                  <h1>Taxes</h1>
+                </div>
+                <div>
+                  <p>250.00</p>
+                </div>
+              </div>
+              <div class="flex flex-row justify-between">
+                <div>
+                  <h1>Due amount</h1>
+                </div>
+                <div class="font-semibold">
+                  <p>Rs 5250.00</p>
+                </div>
+              </div>
+            </div>
+            <div class="py-2 px-4">
+              <div class="flex flex-row justify-between gap-2 items-center">
+                <p>Bill to</p>
+                <select id="payment" name="payment" class="border border-gray-300 px-2 py-1">
+                  <option value="Mr">Guest</option>
+                  <option value="Mrs">Guest</option>
+                </select>
+                <label>
+                  <input type="checkbox" name="taxEempt" />
+                  Tax Exempt
+                </label>
+              </div>
+            </div>
+            <div class="px-4 py-2">
+              <label>
+                <input type="checkbox" name="paymentMode" />
+                Payment Mode
+              </label>
+            </div>
+            <div class="flex flex-col gap-4 justify-between px-4 py-1">
+              <div class="space-x-2">
+                <label>
+                  <input type="radio" name="options" value="option1" />
+                  cash
+                </label>
+                <label>
+                  <input type="radio" name="options" value="option2" />
+                  credit
+                </label>
+              </div>
+              <div>
+                <input type="text" placeholder="Cash" class="border-gray-200 border-2" />
+              </div>
+            </div>
+            <div class=" mt-4 pt-4 text-right px-4">
+              <Button class="px-4 py-2 border-blue-600 border-2 rounded-md hover:bg-blue-300">Add payement</Button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!--======================= Reservation Area End ==================================-->
+
+
+
+      <!--======================= Arrivals Area Start ==================================-->
+
+
+      <div>
+
+        <!-- ------------------------------GRID VEIW START------------------------------------->
+        <div id="arrivalsDiv" class="flex justify-between gridX lg:ml-20 block">
+
+          <div class="w-[60px] p-5 hidden lg:block">
+
+          </div>
+
+          <div
+            class="w-full py-5 px-8 lg:w-[calc(100% - 60px)] rounded-md grid grid:cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 inner-nav-2 bg-[rgb(231, 231, 231)]">
+
+            <div class="allBox p-3 shadow-lg">
+
+              <div class="flex justify-between mb-5">
+                <div>
+                  <div class="flex">
+                    <div class="mt-1">
+                      <i class="fa-solid fa-hotel text-3xl" style="color: #9f1cce;"></i>
+                    </div>
+                    <div class="">
+                      <p class="text-lg mx-2 font-semibold">Mr.Robert Methew</p>
+                      <p class="ml-2">Supp74-1</p>
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-crown"></i>
+
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-person"></i>
+
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+              </div>
+
+              <div class="secondDiv">
+                <div class="secondDivOne py-3">
+                  <p>10/10/2022</p>
+                  <p>14:55:00</p>
+                </div>
+                <div class="secondDivTwo">
+                  <p>1</p>
+                  <p>Night</p>
+                </div>
+                <div class="secondDivOne">
+                  <p>10/10/2022</p>
+                  <p> 14:55:00</p>
+                </div>
+              </div>
+
+              <div class="otherLineThirdDiv mt-5">
+                <div class="text-sm">
+                  <p>Bookink Date</p>
+                  <p>14/10/2022</p>
+                </div>
+                <div><i class="fa-solid fa-person"></i><sub>1</sub><i class="fa-solid fa-child ml-1"></i><sub>0</sub>
+                </div>
+              </div>
+
+              <div class="otherLineThirdDiv text-sm mt-5">
+                <div>
+                  <p>Room/Rate Type</p>
+                </div>
+                <div>Confirm Booking</div>
+              </div>
+
+              <div class="otherLineFourthDiv text-sm">
+                <p style="color: blue;">Assigm Room</p>
+                <p>/Modified American Plan</p>
+              </div>
+
+              <p class="text-sm">(MAP)</p>
+
+
+              <div class="otherLineFifthDiv mt-8 text-sm">
+                <div class="firstLineBox">
+                  <p>Total</p>
+                  <p>Paid</p>
+                  <p class="firstLineColorText">Balence</p>
+                </div>
+                <div class="firstLineBox">
+                  <p>Rs.4,480.00</p>
+                  <p>0.00</p>
+                  <p class="firstLineColorText">4,48.00</p>
+                </div>
+
+
+              </div>
+
+            </div>
+
+            <div class="allBox p-3 shadow-lg">
+              <div class="flex justify-between mb-5">
+                <div>
+                  <div class="flex">
+                    <div class="mt-1">
+                      <i class="fa-solid fa-hotel text-3xl" style="color: #9f1cce;"></i>
+                    </div>
+                    <div class="">
+                      <p class="text-lg mx-2 font-semibold">Mr.Robert Methew</p>
+                      <p class="ml-2">Supp74-1</p>
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-crown"></i>
+
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-person"></i>
+
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+              </div>
+
+              <div class="secondDiv">
+                <div class="secondDivOne py-3">
+                  <p>10/10/2022</p>
+                  <p>14:55:00</p>
+                </div>
+                <div class="secondDivTwo">
+                  <p>1</p>
+                  <p>Night</p>
+                </div>
+                <div class="secondDivOne">
+                  <p>10/10/2022</p>
+                  <p> 14:55:00</p>
+                </div>
+              </div>
+
+              <div class="otherLineThirdDiv mt-5">
+                <div class="text-sm">
+                  <p>Bookink Date</p>
+                  <p>14/10/2022</p>
+                </div>
+                <div><i class="fa-solid fa-person"></i><sub>1</sub><i class="fa-solid fa-child ml-1"></i><sub>0</sub>
+                </div>
+              </div>
+
+              <div class="otherLineThirdDiv text-sm mt-5">
+                <div>
+                  <p>Room/Rate Type</p>
+                </div>
+                <div>Confirm Booking</div>
+              </div>
+
+              <div class="otherLineFourthDiv text-sm">
+                <p style="color: blue;">Assigm Room</p>
+                <p>/Modified American Plan</p>
+              </div>
+
+              <p class="text-sm">(MAP)</p>
+
+
+              <div class="otherLineFifthDiv mt-8 text-sm">
+                <div class="firstLineBox">
+                  <p>Total</p>
+                  <p>Paid</p>
+                  <p class="firstLineColorText">Balence</p>
+                </div>
+                <div class="firstLineBox">
+                  <p>Rs.4,480.00</p>
+                  <p>0.00</p>
+                  <p class="firstLineColorText">4,48.00</p>
+                </div>
+
+
+              </div>
+
+            </div>
+
+            <div class="allBox p-3 shadow-lg">
+              <div class="flex justify-between mb-5">
+                <div>
+                  <div class="flex">
+                    <div class="mt-1">
+                      <i class="fa-solid fa-hotel text-3xl" style="color: #9f1cce;"></i>
+                    </div>
+                    <div class="">
+                      <p class="text-lg mx-2 font-semibold">Mr.Robert Methew</p>
+                      <p class="ml-2">Supp74-1</p>
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-crown"></i>
+
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-person"></i>
+
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+              </div>
+
+              <div class="secondDiv">
+                <div class="secondDivOne py-3">
+                  <p>10/10/2022</p>
+                  <p>14:55:00</p>
+                </div>
+                <div class="secondDivTwo">
+                  <p>1</p>
+                  <p>Night</p>
+                </div>
+                <div class="secondDivOne">
+                  <p>10/10/2022</p>
+                  <p> 14:55:00</p>
+                </div>
+              </div>
+
+              <div class="otherLineThirdDiv mt-5">
+                <div class="text-sm">
+                  <p>Bookink Date</p>
+                  <p>14/10/2022</p>
+                </div>
+                <div><i class="fa-solid fa-person"></i><sub>1</sub><i class="fa-solid fa-child ml-1"></i><sub>0</sub>
+                </div>
+              </div>
+
+              <div class="otherLineThirdDiv text-sm mt-5">
+                <div>
+                  <p>Room/Rate Type</p>
+                </div>
+                <div>Confirm Booking</div>
+              </div>
+
+              <div class="otherLineFourthDiv text-sm">
+                <p style="color: blue;">Assigm Room</p>
+                <p>/Modified American Plan</p>
+              </div>
+
+              <p class="text-sm">(MAP)</p>
+
+
+              <div class="otherLineFifthDiv mt-8 text-sm">
+                <div class="firstLineBox">
+                  <p>Total</p>
+                  <p>Paid</p>
+                  <p class="firstLineColorText">Balence</p>
+                </div>
+                <div class="firstLineBox">
+                  <p>Rs.4,480.00</p>
+                  <p>0.00</p>
+                  <p class="firstLineColorText">4,48.00</p>
+                </div>
+
+
+              </div>
+
+            </div>
+
+            <div class="allBox p-3 shadow-lg">
+              <div class="flex justify-between mb-5">
+                <div>
+                  <div class="flex">
+                    <div class="mt-1">
+                      <i class="fa-solid fa-hotel text-3xl" style="color: #9f1cce;"></i>
+                    </div>
+                    <div class="">
+                      <p class="text-lg mx-2 font-semibold">Mr.Robert Methew</p>
+                      <p class="ml-2">Supp74-1</p>
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-crown"></i>
+
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-person"></i>
+
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+              </div>
+
+              <div class="secondDiv">
+                <div class="secondDivOne py-3">
+                  <p>10/10/2022</p>
+                  <p>14:55:00</p>
+                </div>
+                <div class="secondDivTwo">
+                  <p>1</p>
+                  <p>Night</p>
+                </div>
+                <div class="secondDivOne">
+                  <p>10/10/2022</p>
+                  <p> 14:55:00</p>
+                </div>
+              </div>
+
+              <div class="otherLineThirdDiv mt-5">
+                <div class="text-sm">
+                  <p>Bookink Date</p>
+                  <p>14/10/2022</p>
+                </div>
+                <div><i class="fa-solid fa-person"></i><sub>1</sub><i class="fa-solid fa-child ml-1"></i><sub>0</sub>
+                </div>
+              </div>
+
+              <div class="otherLineThirdDiv text-sm mt-5">
+                <div>
+                  <p>Room/Rate Type</p>
+                </div>
+                <div>Confirm Booking</div>
+              </div>
+
+              <div class="otherLineFourthDiv text-sm">
+                <p style="color: blue;">Assigm Room</p>
+                <p>/Modified American Plan</p>
+              </div>
+
+              <p class="text-sm">(MAP)</p>
+
+
+              <div class="otherLineFifthDiv mt-8 text-sm">
+                <div class="firstLineBox">
+                  <p>Total</p>
+                  <p>Paid</p>
+                  <p class="firstLineColorText">Balence</p>
+                </div>
+                <div class="firstLineBox">
+                  <p>Rs.4,480.00</p>
+                  <p>0.00</p>
+                  <p class="firstLineColorText">4,48.00</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="allBox p-3 shadow-lg">
+              <div class="flex justify-between mb-5">
+                <div>
+                  <div class="flex">
+                    <div class="mt-1">
+                      <i class="fa-solid fa-hotel text-3xl" style="color: #9f1cce;"></i>
+                    </div>
+                    <div class="">
+                      <p class="text-lg mx-2 font-semibold">Mr.Robert Methew</p>
+                      <p class="ml-2">Supp74-1</p>
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-crown"></i>
+
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-person"></i>
+
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+              </div>
+
+              <div class="secondDiv">
+                <div class="secondDivOne py-3">
+                  <p>10/10/2022</p>
+                  <p>14:55:00</p>
+                </div>
+                <div class="secondDivTwo">
+                  <p>1</p>
+                  <p>Night</p>
+                </div>
+                <div class="secondDivOne">
+                  <p>10/10/2022</p>
+                  <p> 14:55:00</p>
+                </div>
+              </div>
+
+              <div class="otherLineThirdDiv mt-5">
+                <div class="text-sm">
+                  <p>Bookink Date</p>
+                  <p>14/10/2022</p>
+                </div>
+                <div><i class="fa-solid fa-person"></i><sub>1</sub><i class="fa-solid fa-child ml-1"></i><sub>0</sub>
+                </div>
+              </div>
+
+              <div class="otherLineThirdDiv text-sm mt-5">
+                <div>
+                  <p>Room/Rate Type</p>
+                </div>
+                <div>Confirm Booking</div>
+              </div>
+
+              <div class="otherLineFourthDiv text-sm">
+                <p style="color: blue;">Assigm Room</p>
+                <p>/Modified American Plan</p>
+              </div>
+
+              <p class="text-sm">(MAP)</p>
+
+
+              <div class="otherLineFifthDiv mt-8 text-sm">
+                <div class="firstLineBox">
+                  <p>Total</p>
+                  <p>Paid</p>
+                  <p class="firstLineColorText">Balence</p>
+                </div>
+                <div class="firstLineBox">
+                  <p>Rs.4,480.00</p>
+                  <p>0.00</p>
+                  <p class="firstLineColorText">4,48.00</p>
+                </div>
+
+
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+        <!-- ------------------------------GRID VEIW END------------------------------------->
+
+
+
+        <!-- ------------------------------TABLE VEIW START------------------------------------->
+        <div id="listView" class="flex justify-between list hidden lg:ml-16">
+          <div class="w-[60px] p-5 hidden lg:block">
+
+          </div>
+
+          <div class="w-full py-5 px-8 lg:w-[calc(100% - 60px)] bg-gray-300 rounded-md bg-[rgb(231, 231, 231)]">
+            <!-- <h1 class="text-5xl">List</h1> -->
+
+            <div class="mx-auto">
+              <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th class="px-6 py-3 border-b border-gray-200 text-left text-sm font-medium text-gray-600">
+                        Guest Name
+                      </th>
+                      <th class="px-6 py-3 border-b border-gray-200 text-left text-sm font-medium text-gray-600">
+                        Res. No
+                        <p class="text-xs text-gray-500">Voucher No</p>
+                      </th>
+                      <th class="px-6 py-3 border-b border-gray-200 text-left text-sm font-medium text-gray-600">
+                        Booking Date
+                      </th>
+                      <th class="px-6 py-3 border-b border-gray-200 text-left text-sm font-medium text-gray-600">
+                        Arrival
+                      </th>
+                      <th class="px-6 py-3 border-b border-gray-200 text-left text-sm font-medium text-gray-600">
+                        Departure
+                      </th>
+                      <th class="px-6 py-3 border-b border-gray-200 text-left text-sm font-medium text-gray-600">
+                        Room Details
+                      </th>
+                      <th class="px-6 py-3 border-b border-gray-200 text-left text-sm font-medium text-gray-600">
+                        Res Type
+                      </th>
+                      <th class="px-6 py-3 border-b border-gray-200 text-left text-sm font-medium text-gray-600">
+                        Total(Rs.)
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="bg-white border-b border-gray-200">
+                      <th class="px-6 py-4 text-left text-sm font-medium text-gray-700 cursor-pointer"
+                        data-drawer-target="drawer-right-example" data-drawer-show="drawer-right-example"
+                        data-drawer-placement="right" aria-controls="drawer-right-example">
+                        <div class="flex gap-3">
+                          <div class="mt-1">
+                            <i class="fa-solid fa-hotel text-3xl" style="color: #9f1cce;"></i>
+                          </div>
+                          <div>
+                            Mr. Charles Wade <i class="fa-solid fa-crown"></i> <i class="fa-solid fa-person"></i>
+                            <div><i class="fa-solid fa-person"></i><sub>1</sub><i
+                                class="fa-solid fa-child ml-1"></i><sub>0</sub></div>
+                          </div>
+                        </div>
+                      </th>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        SUPP69
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        14/10/2020
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        10/10/2022<br>13.47.00
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        10/10/2022<br>13.47.00
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        <span class="text-blue-600 bg-gray-200 p-1">Assign Room</span> - Suite Room<br>Continental Plan
+                        (CP)
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        Confirm Booking
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        2,240,00
+                      </td>
+                    </tr>
+                  </tbody>
+                  <tbody>
+                    <tr class="bg-white border-b border-gray-200">
+                      <th class="px-6 py-4 text-left text-sm font-medium text-gray-700 cursor-pointer"
+                        data-drawer-target="drawer-right-example" data-drawer-show="drawer-right-example"
+                        data-drawer-placement="right" aria-controls="drawer-right-example">
+                        <div class="flex gap-3">
+                          <div class="mt-1">
+                            <i class="fa-solid fa-hotel text-3xl" style="color: #9f1cce;"></i>
+                          </div>
+                          <div>
+                            Mr. Charles Wade <i class="fa-solid fa-crown"></i> <i class="fa-solid fa-person"></i>
+                            <div><i class="fa-solid fa-person"></i><sub>1</sub><i
+                                class="fa-solid fa-child ml-1"></i><sub>0</sub></div>
+                          </div>
+                        </div>
+                      </th>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        SUPP69
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        14/10/2020
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        10/10/2022<br>13.47.00
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        10/10/2022<br>13.47.00
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        <span class="text-blue-600 bg-gray-200 p-1">Assign Room</span> - Suite Room<br>Continental Plan
+                        (CP)
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        Confirm Booking
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        2,240,00
+                      </td>
+                    </tr>
+                  </tbody>
+                  <tbody>
+                    <tr class="bg-white border-b border-gray-200">
+                      <th class="px-6 py-4 text-left text-sm font-medium text-gray-700 cursor-pointer"
+                        data-drawer-target="drawer-right-example" data-drawer-show="drawer-right-example"
+                        data-drawer-placement="right" aria-controls="drawer-right-example">
+                        <div class="flex gap-3">
+                          <div class="mt-1">
+                            <i class="fa-solid fa-hotel text-3xl" style="color: #9f1cce;"></i>
+                          </div>
+                          <div>
+                            Mr. Charles Wade <i class="fa-solid fa-crown"></i> <i class="fa-solid fa-person"></i>
+                            <div><i class="fa-solid fa-person"></i><sub>1</sub><i
+                                class="fa-solid fa-child ml-1"></i><sub>0</sub></div>
+                          </div>
+                        </div>
+                      </th>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        SUPP69
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        14/10/2020
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        10/10/2022<br>13.47.00
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        10/10/2022<br>13.47.00
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        <span class="text-blue-600 bg-gray-200 p-1">Assign Room</span> - Suite Room<br>Continental Plan
+                        (CP)
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        Confirm Booking
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        2,240,00
+                      </td>
+                    </tr>
+                  </tbody>
+                  <tbody>
+                    <tr class="bg-white border-b border-gray-200">
+                      <th class="px-6 py-4 text-left text-sm font-medium text-gray-700 cursor-pointer"
+                        data-drawer-target="drawer-right-example" data-drawer-show="drawer-right-example"
+                        data-drawer-placement="right" aria-controls="drawer-right-example">
+                        <div class="flex gap-3">
+                          <div class="mt-1">
+                            <i class="fa-solid fa-hotel text-3xl" style="color: #9f1cce;"></i>
+                          </div>
+                          <div>
+                            Mr. Charles Wade <i class="fa-solid fa-crown"></i> <i class="fa-solid fa-person"></i>
+                            <div><i class="fa-solid fa-person"></i><sub>1</sub><i
+                                class="fa-solid fa-child ml-1"></i><sub>0</sub></div>
+                          </div>
+                        </div>
+                      </th>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        SUPP69
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        14/10/2020
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        10/10/2022<br>13.47.00
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        10/10/2022<br>13.47.00
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        <span class="text-blue-600 bg-gray-200 p-1">Assign Room</span> - Suite Room<br>Continental Plan
+                        (CP)
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        Confirm Booking
+                      </td>
+                      <td class="px-6 py-4 text-left text-sm text-gray-700">
+                        2,240,00
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+
+            <!-- drawer component -->
+            <div id="drawer-right-example"
+              class="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white drawer dark:bg-gray-800"
+              tabindex="-1" aria-labelledby="drawer-right-label">
+
+              <div>
+                <button type="button" data-drawer-hide="drawer-right-example" aria-controls="drawer-right-example"
+                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white ">
+                  <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                  </svg>
+                  <span class="sr-only">Close menu</span>
+                </button>
+              </div>
+
+              <div class="mt-10">
+
+
+                <div class="flex items-center">
+                  <div class="flex flex-col items-center justify-center bg-gray-100 h-20 w-20 text-sm calender">
+                    <h1>Mon</h1>
+                    <h3 class="font-semibold">10</h3>
+                    <p>Oct</p>
+                  </div>
+                  <div class="flex flex-col items-center justify-center bg-gray-100 h-20 w-20 text-sm border">
+                    <h1>Mon</h1>
+                    <h3 class="font-semibold">10</h3>
+                    <p>Oct</p>
+                  </div>
+                  <div class="flex flex-col items-center justify-center bg-gray-100 h-20 w-20 text-sm border">
+                    <h1>Mon</h1>
+                    <h3 class="font-semibold">10</h3>
+                    <p>Oct</p>
+                  </div>
+                  <div class="flex flex-col items-center justify-center bg-gray-100 h-20 w-20 text-sm border">
+                    <h1>Mon</h1>
+                    <h3 class="font-semibold">10</h3>
+                    <p>Oct</p>
+                  </div>
+                  <div class="flex flex-col items-center justify-center bg-gray-100 h-20 w-20 text-sm border">
+                    <h1>Mon</h1>
+                    <h3 class="font-semibold">10</h3>
+                    <p>Oct</p>
+                  </div>
+                  <div class="flex flex-col items-center justify-center bg-gray-100 h-20 w-20 text-sm border">
+                    <h1>Mon</h1>
+                    <h3 class="font-semibold">10</h3>
+                    <p>Oct</p>
+                  </div>
+                </div>
+
+                <div class="mt-5">
+                  <div class="border-t border-b p-5">
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center">
+                        <img src="../Assets/play.png" class="h-5 w-5 mr-5" alt="">
+                        <p>Twin Room</p>
+                      </div>
+                      <p>(5)</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-5">
+                  <div class="border-t border-b p-5">
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center">
+                        <img src="../Assets/play.png" class="h-5 w-5 mr-5" alt="">
+                        <p>Standard Room</p>
+                      </div>
+                      <p>(5)</p>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="mt-5">
+                  <div class="border-t border-b p-5">
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center">
+                        <img src="../Assets/play.png" class="h-5 w-5 mr-5" alt="">
+                        <p>Superior Deluxe</p>
+                      </div>
+                      <p>(6)</p>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="mt-5">
+                  <div class="border-t border-b  p-5">
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center">
+                        <img src="../Assets/downward-arrow.png" class="h-5 w-5 mr-5" alt="">
+                        <p>Suite Room</p>
+                      </div>
+                      <p>(2)</p>
+                    </div>
+
+                    <div class="mt-5">
+
+
+                      <div class="p-5 shadow-lg">
+                        <div class="flex justify-between">
+                          <div class="flex">
+                            <div class="flex flex-col items-center justify-center bg-gray-100 h-14 w-14 mr-2">
+                              <h3>10</h3>
+                              <p>Oct</p>
+                            </div>
+                            <div class="text-sm">
+                              <h1 class="text-blue-500 font-semibold">Mr. Charies Wade</h1>
+                              <h2 class="text-sm">SUPP69</h2>
+                            </div>
+                          </div>
+                          <div>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                          </div>
+                        </div>
+                        <div class="flex justify-between mt-2">
+                          <div class="flex">
+                            <div class="flex flex-col items-center justify-center bg-gray-100 h-14 w-14 mr-2">
+                              <h3>10</h3>
+                              <p>Oct</p>
+                            </div>
+                            <div class="text-sm">
+                              <h1 class="text-blue-500 font-semibold">Mr. Charies Wade</h1>
+                              <h2 class="text-sm">SUPP69</h2>
+                            </div>
+                          </div>
+                          <div class="text-sm">
+                            <p>Room</p>
+                            <p class="px-1 text-blue-500 border border-blue-500">Assign Room</p>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="p-5 shadow-lg border border-blue-500 mt-3">
+                        <div class="flex justify-between">
+                          <div class="flex">
+                            <div class="flex flex-col items-center justify-center bg-gray-100 h-14 w-14 mr-2">
+                              <h3>10</h3>
+                              <p>Oct</p>
+                            </div>
+                            <div class="text-sm">
+                              <h1 class="text-blue-500 font-semibold">Mr. Charies Wade</h1>
+                              <h2 class="text-sm">SUPP69</h2>
+                            </div>
+                          </div>
+                          <div>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                          </div>
+                        </div>
+
+
+                        <div class="flex justify-between mt-2">
+                          <div class="flex">
+                            <div class="flex flex-col items-center justify-center bg-gray-100 h-14 w-14 mr-2">
+                              <h3>10</h3>
+                              <p>Oct</p>
+                            </div>
+                            <div class="text-sm">
+                              <h1 class="text-blue-500 font-semibold">Mr. Charies Wade</h1>
+                              <h2 class="text-sm">SUPP69</h2>
+                            </div>
+                          </div>
+                          <div class="text-sm">
+                            <p>Room</p>
+                            <p class="px-1 text-blue-500 border border-blue-500">Assign Room</p>
+                          </div>
+                        </div>
+
+                        <div class="text-sm mt-5">
+                          <h2>Room Type</h2>
+                          <select class="w-full mt-1">
+                            <option value="actual value 1">Display Text 1</option>
+                            <option value="actual value 2">Display Text 2</option>
+                            <option value="actual value 3">Display Text 3</option>
+                          </select>
+                        </div>
+                        <div class="text-sm mt-3">
+                          <h2>Room Type</h2>
+                          <select class="w-full mt-1">
+                            <option value="actual value 1">Display Text 1</option>
+                            <option value="actual value 2">Display Text 2</option>
+                            <option value="actual value 3">Display Text 3</option>
+                          </select>
+                        </div>
+                      </div>
+
+
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+        <!-- ------------------------------TABLE VEIW END------------------------------------->
+      </div>
+
+
+
+      <!--======================= Arrivals Area End ==================================-->
+
+
+      <!--======================= Departures Area Start ==================================-->
+      <div id="departuresDiv" class="flex justify-between gridX" style="display: none;">
+        <!-- Add content for Departures if needed -->
+        <div class="w-[60px] p-5 hidden lg:block">
+
+        </div>
+      </div>
+      <!--======================= Departures Area End ==================================-->
+
+      <!--======================= In-House Area Start ==================================-->
+      <div id="inHouseDiv" class="flex justify-between gridX" style="display: none;">
+        <!-- Add content for In-House if needed -->
+        <div class="w-[60px] p-5 hidden lg:block">
+
+        </div>
+      </div>
+      <!--======================= In-House Area End ==================================-->
+    </div>
+
+
+  </div>
+
+
+
+
+  <script type="text/javascript">
+    function toggleMenu() {
+      let navigation = document.querySelector('.navigation');
+      let toggle = document.querySelector('.toggle');
+      navigation.classList.toggle('active');
+      toggle.classList.toggle('active');
+    }
+  </script>
+
+  <script>
+    function toggleHamburger() {
+      const sideMenu = document.getElementById('side-menu');
+      sideMenu.classList.toggle('open');
+      if (sideMenu.classList.contains('hidden')) {
+        sideMenu.classList.remove('hidden');
+        sideMenu.classList.add('block');
+      } else {
+        sideMenu.classList.remove('block');
+        sideMenu.classList.add('hidden');
+      }
+    }
+  </script>
+
+  <!-- underline script         -->
+  <script>
+    document.querySelectorAll('.menu-items li').forEach(item => {
+      item.addEventListener('click', function () {
+        // Remove 'active' class from all items
+        document.querySelectorAll('.menu-items li').forEach(el => el.classList.remove('active'));
+
+        // Add 'active' class to the clicked item
+        this.classList.add('active');
+      });
+    });
+  </script>
+
+  <!-- seacrch button script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchBtn = document.getElementById('searchBtn');
+      const searchInput = document.getElementById('searchInput');
+
+      searchBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        searchBtn.classList.toggle('hidden');
+        searchInput.classList.toggle('hidden');
+        if (!searchInput.classList.contains('hidden')) {
+          searchInput.focus();
+        }
+      });
+
+      searchInput.addEventListener('blur', () => {
+        searchBtn.classList.toggle('hidden');
+        searchInput.classList.toggle('hidden');
+      });
+
+      // Existing setupToggleButtons function
+      function setupToggleButtons(gridButtonId, listButtonId, gridDivClass, listDivClass) {
+        const gridBtn = document.getElementById(gridButtonId);
+        const listBtn = document.getElementById(listButtonId);
+        const gridDiv = document.querySelector(gridDivClass);
+        const listDiv = document.querySelector(listDivClass);
+
+        gridBtn.addEventListener('click', () => {
+          gridBtn.classList.add('active-bg');
+          listBtn.classList.remove('active-bg');
+          gridDiv.classList.remove('hidden');
+          listDiv.classList.add('hidden');
+        });
+
+        listBtn.addEventListener('click', () => {
+          listBtn.classList.add('active-bg');
+          gridBtn.classList.remove('active-bg');
+          listDiv.classList.remove('hidden');
+          gridDiv.classList.add('hidden');
+        });
+      }
+
+      setupToggleButtons('gridBtn', 'listBtn', '.gridX', '.list');
+    });
+  </script>
+
+
+  <script>
+    function showDiv(divId) {
+      // Hide all divs
+      document.getElementById('reservationDiv').style.display = 'none';
+      document.getElementById('arrivalsDiv').style.display = 'none';
+      document.getElementById('departuresDiv').style.display = 'none';
+      document.getElementById('inHouseDiv').style.display = 'none';
+
+      // Show the selected div
+      document.getElementById(divId).style.display = 'block';
+    }
+
+    // Initially display the arrivalsDiv
+    window.onload = function () {
+      showDiv('arrivalsDiv');
+    }
+  </script>
+
+
+
+
+  <!-- ------------------Side Navbar------------------------ -->
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="../src/swiper.js"></script>
+  <script src="../src/script.js"></script>
+</body>
+
+</html>

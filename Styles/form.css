@@ -1,0 +1,30 @@
+.divOne {
+  width: 100%;
+  font-size: 16px;
+}
+
+.divTwo {
+  width: 30%;
+  padding: 2rem;
+}
+.parent {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .divOne {
+    width: 70%;
+  }
+  .divTwo {
+    width: 30%;
+  }
+}
+@media (max-width: 767px) {
+  .divOne,
+  .divTwo {
+    width: 100%;
+  }
+}
+.parent {
+  width: 100%;
+}
